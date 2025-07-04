@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Engineer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+     <script src="animation.js"></script> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .skill-bar {
+            height: 6px;
+            border-radius: 3px;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: #667eea;
+        }
+
+        /* Scroll animation classes */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .scroll-animate.animate-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Modal styles */
+        #certModal {
+            transition: opacity 0.3s ease;
+        }
+        /* Card hover background */
+        .card-hover-bg {
+            transition: opacity 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="gradient-bg text-white shadow-lg fixed w-full z-10">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold">DevOps</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#certifications" class="nav-link">Certifications</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                <button class="md:hidden" id="menu-toggle">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <div class="md:hidden hidden py-2" id="mobile-menu">
+                <a href="#home" class="block py-2">Home</a>
+                <a href="#about" class="block py-2">About</a>
+                <a href="#skills" class="block py-2">Skills</a>
+                <a href="#experience" class="block py-2">Experience</a>
+                <a href="#projects" class="block py-2">Projects</a>
+                <a href="#certifications" class="block py-2">Certifications</a>
+                <a href="#contact" class="block py-2">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg text-white pt-32 pb-20">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">Hi, I'm <span class="text-yellow-300">Mohd Umair</span></h1>
+                <h2 class="text-2xl md:text-3xl mb-8">DevOps & DevSecOps Engineer</h2>
+                <p class="text-lg mb-8">Building scalable, reliable, and secure cloud infrastructures with CI/CD pipelines and automation.</p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="bg-white text-purple-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">Hire Me</a>
+                    <a href="#projects" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-purple-700 transition duration-300">View Work</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <div class="absolute -top-6 -left-6 w-32 h-32 bg-yellow-300 rounded-full opacity-20 animate-pulse"></div>
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-purple-300 rounded-full opacity-20 animate-pulse"></div>
+                    <img src="./Images/image.png" alt="Professional DevOps engineer standing in modern office with laptop and cloud computing icons floating in background" class="rounded-full w-84 h-84 md:w-80 md:h-80 object-cover border-4 border-white shadow-xl relative">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">About <span class="text-purple-700">Me</span></h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <img src="./Images/image copy.png" alt="DevOps engineer working at a standing desk with multiple monitors showing code and cloud architecture diagrams" class="rounded-lg shadow-lg w-full max-w-xs">
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <h3 class="text-2xl font-semibold mb-4">DevOps Engineer with 1+ Years Experience</h3>
+                    <p class="text-gray-600 mb-6">I specialize in automating deployment processes, optimizing cloud infrastructure, and ensuring high availability of web applications. My expertise lies in designing CI/CD pipelines, implementing Infrastructure as Code, and enhancing monitoring solutions.</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-xl font-semibold mb-3">What I Do</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex items-start">
+                                <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-server text-purple-700"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold">Cloud Infrastructure</h5>
+                                    <p class="text-gray-600 text-sm">AWS and Azure architecture design and implementation</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-code-branch text-purple-700"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold">CI/CD Pipelines</h5>
+                                    <p class="text-gray-600 text-sm">Azure Pipeline, Jenkins, GitHub Actions, and GitLab CI automation</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-shield-alt text-purple-700"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold">DevSecOps</h5>
+                                    <p class="text-gray-600 text-sm">Security automation and compliance as code</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                    <i class="fas fa-cloud text-purple-700"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold">Infrastructure as Code</h5>
+                                    <p class="text-gray-600 text-sm">Terraform & Ansible deployments</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap">
+                        <a href="./Mohd_Umair_Resume.pdf" class="bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-800 transition duration-300 mr-4 mb-4 flex items-center">
+                            <i class="fas fa-download mr-2"></i> Download CV
+                        </a>
+                        <a href="https://www.linkedin.com/in/mohd-umair-akhtar/" target="_blank" class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300 flex items-center mb-4">
+                            <i class="fab fa-linkedin-in mr-2 text-blue-600"></i> LinkedIn
+                        </a>
+                        <a href="https://github.com/Umair-Devops-425" target="_blank" class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300 flex items-center ml-4 mb-4">
+                            <i class="fab fa-github mr-2"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Technical <span class="text-purple-700">Skills</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Technical Skills -->
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <h3 class="text-xl font-semibold mb-6 text-center">DevOps <span class="text-purple-700">Tools</span></h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Docker & Kubernetes</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full">
+                                <div class="skill-bar bg-purple-700 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Terraform & Ansible</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full">
+                                <div class="skill-bar bg-purple-700 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Azure/AWS</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full">
+                                <div class="skill-bar bg-purple-700 rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>CI/CD (Azure Pipeline, GitHub Actions, GitLab CI, )</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full">
+                                <div class="skill-bar bg-purple-700 rounded-full" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Programming Languages -->
+                <div class="bg-white p-8 rounded-xl shadow-md">
+                    <h3 class="text-xl font-semibold mb-6 text-center">Programming <span class="text-purple-700">Languages</span></h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Python</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full">
+                                <div class="skill-bar bg-purple-700 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Bash/Shell Scripting</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full">
+                                <div class="skill-bar bg-purple-700 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <!-- <div>
+                            <div class="flex justify-between mb-1">
+                                <span>Go</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full">
+                                <div class="skill-bar bg-purple-700 rounded-full" style="width: 70%"></div>
+                            </div>
+                        </div> -->
+                        <!-- <div>
+                            <div class="flex justify-between mb-1">
+                                <span>JavaScript/Node.js</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full">
+                                <div class="skill-bar bg-purple-700 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Other Skills -->
+            <div class="mt-12 bg-white p-8 rounded-xl shadow-md">
+                <h3 class="text-xl font-semibold mb-6 text-center">Other <span class="text-purple-700">Expertise</span></h3>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <div class="bg-purple-100 px-4 py-2 rounded-full text-purple-700 font-medium">Monitoring (Prometheus, Grafana)</div>
+                    <!-- <div class="bg-purple-100 px-4 py-2 rounded-full text-purple-700 font-medium">Logging (ELK Stack)</div> -->
+                    <div class="bg-purple-100 px-4 py-2 rounded-full text-purple-700 font-medium">Linux Administration</div>
+                    <div class="bg-purple-100 px-4 py-2 rounded-full text-purple-700 font-medium">Cloud Security</div>
+                    <!-- <div class="bg-purple-100 px-4 py-2 rounded-full text-purple-700 font-medium">Database Management</div> -->
+                    <div class="bg-purple-100 px-4 py-2 rounded-full text-purple-700 font-medium">Networking</div>
+                    <div class="bg-purple-100 px-4 py-2 rounded-full text-purple-700 font-medium">Microservices</div>
+                    <div class="bg-purple-100 px-4 py-2 rounded-full text-purple-700 font-medium">Git</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Work <span class="text-purple-700">Experience</span></h2>
+            
+            <div class="max-w-3xl mx-auto">
+                <!-- Experience Timeline -->
+                <div class="space-y-8 relative">
+                    <!-- Current Job -->
+                    <div class="relative pl-8 timeline-item">
+                        <div class="absolute left-0 flex items-center justify-center -ml-1.5">
+                            <div class="w-4 h-4 rounded-full bg-purple-700"></div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="text-xl font-semibold">DevOps Engineer</h3>
+                                <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">2024 - Present</span>
+                            </div>
+                            <div class="text-gray-500 mb-3">Learnivio (Edukiran Pvt Ltd)</div>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                                <li>Set up GitHub CI/CD pipelines to make software deployment faster and more efficient.</li>
+                                <li>Used tools like Terraform to manage infrastructure with code, which helped cut down deployment time</li>
+                                <li>Built and managed CI/CD pipelines to automate building, testing, and deploying applications making development quicker and smoother.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Previous Job
+                    <div class="relative pl-8 timeline-item">
+                        <div class="absolute left-0 flex items-center justify-center -ml-1.5">
+                            <div class="w-4 h-4 rounded-full bg-purple-700"></div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="text-xl font-semibold">DevOps Engineer</h3>
+                                <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">2018 - 2021</span>
+                            </div>
+                            <div class="text-gray-500 mb-3">DigitalOcean</div>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                                <li>Automated infrastructure provisioning reducing manual work by 70%</li>
+                                <li>Containerized legacy applications improving scalability and resource utilization</li>
+                                <li>Implemented infrastructure monitoring and logging solutions</li>
+                                <li>Led junior DevOps engineers and conducted knowledge sharing sessions</li>
+                            </ul>
+                        </div>
+                    </div> -->
+                    
+                    <!-- First Job -->
+                    <!-- <div class="relative pl-8 timeline-item">
+                        <div class="absolute left-0 flex items-center justify-center -ml-1.5">
+                            <div class="w-4 h-4 rounded-full bg-purple-700"></div>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="text-xl font-semibold">Cloud Infrastructure Engineer</h3>
+                                <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">2016 - 2018</span>
+                            </div>
+                            <div class="text-gray-500 mb-3">StartUp Venture</div>
+                            <ul class="list-disc pl-5 text-gray-600 space-y-2">
+                                <li>Managed AWS infrastructure for high-traffic web applications</li>
+                                <li>Implemented CI/CD pipelines reducing deployment frequency from weekly to multiple times per day</li>
+                                <li>Optimized cloud costs saving the company $150k annually</li>
+                                <li>Built monitoring dashboards for system health visibility</li>
+                            </ul>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Recent <span class="text-purple-700">Projects</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="./Images/Project_1.png" alt="Dashboard showing Kubernetes cluster metrics with Grafana visualization" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs font-medium">Docker</span>
+                            <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs font-medium ml-2">Terraform</span>
+                            <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs font-medium ml-2">GitHub Actions</span>
+                            <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs font-medium ml-2">Azure</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Todo-App Deployed on Azure</h3>
+                        <p class="text-gray-600 mb-4">A production-ready Todo application with automated CI/CD, Docker containerization, and Terraform-managed Azure VM deployment.</p>
+                        <div class="flex justify-between items-center">
+                            <!-- <a href="#" class="text-purple-700 font-medium hover:underline">Read Case Study →</a> -->
+                            <div class="flex space-x-2">
+                                <a href="https://github.com/Umair-Devops-425/Todo-App" class="text-gray-500 hover:text-purple-700"><i class="fab fa-github"></i></a>
+                                <a href="https://github.com/Umair-Devops-425/Todo-App" class="text-gray-500 hover:text-purple-700"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="./Images/Project_2.png" alt="CI/CD pipeline visualization showing multiple stages passing successfully" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs font-medium">Docker</span>
+                            <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs font-medium ml-2">Kubernetes</span>
+                            <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs font-medium ml-2">AWS</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Deploying_Reddit Clone using Kubernetes</h3>
+                        <p class="text-gray-600 mb-4">Reddit clone application deployed using Kubernetes, Docker, and Minikube on AWS.</p>
+                        <div class="flex justify-between items-center">
+                            <!-- <a href="#" class="text-purple-700 font-medium hover:underline">Read Case Study →</a> -->
+                            <div class="flex space-x-2">
+                                <a href="https://github.com/Umair-Devops-425/Deploying_Reddit_Clone_using_Kubernetes" class="text-gray-500 hover:text-purple-700"><i class="fab fa-github"></i></a>
+                                <a href="https://github.com/Umair-Devops-425/Deploying_Reddit_Clone_using_Kubernetes" class="text-gray-500 hover:text-purple-700"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="./Images/Project_3.png" alt="Infrastructure diagram showing VPC architecture with multiple availability zones" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs font-medium">AWS</span>
+                            <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs font-medium ml-2">YAML</span>
+                            <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs font-medium">Docker</span>
+                            <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs font-medium ml-2">Ansible</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Automated Docker Installation on Multiple Servers using Ansible</h3>
+                        <p class="text-gray-600 mb-4">Install Docker on multiple servers using An Ansible playbook. The playbook is executed from an EC2 instance, targeting multiple remote servers.</p>
+                        <div class="flex justify-between items-center">
+                            <!-- <a href="#" class="text-purple-700 font-medium hover:underline">Read Case Study →</a> -->
+                            <div class="flex space-x-2">
+                                <a href="https://github.com/Umair-Devops-425/Deploying_Docker_using_Ansible_Playbooks" class="text-gray-500 hover:text-purple-700"><i class="fab fa-github"></i></a>
+                                <a href="https://github.com/Umair-Devops-425/Deploying_Docker_using_Ansible_Playbooks" class="text-gray-500 hover:text-purple-700"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <!-- <button id="loadMoreProjects" class="border border-purple-700 text-purple-700 px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 hover:text-white transition duration-300">Load More Projects</button>
+                <div id="moreProjects" class="hidden mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> -->
+                    <!-- Hidden Projects that appear when clicked -->
+                    <!-- Project 4 -->
+                    
+                    <!-- Project 5 -->
+                    
+                    <!-- Project 6 -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Professional <span class="text-purple-700">Certifications</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Certification 1 -->
+                <div class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition duration-300 flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <img src="./Images/microsoft-certified-azure-fundamentals(1).png" alt="microsoft-certified-azure-fundamentals" class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h3 class="text-xl font-semibold">Microsoft Azure: Fundamentals (AZ-900)</h3>
+                            <div class="text-gray-500 text-sm">Azure</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4 flex-grow">This certification gave me a solid foundation in cloud concepts, Azure services, pricing, SLA, and lifecycle. It’s been a great starting point in my cloud journey, and I’m looking forward to building on this knowledge with more advanced certifications ahead.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="text-sm text-gray-500">Issued July 2025</span>
+                        <a href="https://www.credly.com/badges/52f91c58-dfb8-4160-8ee2-7054261d595f/public_url" class="text-purple-700 text-sm font-medium hover:underline">View Credential</a>
+                    </div>
+                </div>
+                
+                <!-- Certification 2 -->
+                <!-- <div class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition duration-300 flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60" alt="Certified Kubernetes Administrator badge icon" class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h3 class="text-xl font-semibold">Certified Kubernetes Administrator (CKA)</h3>
+                            <div class="text-gray-500 text-sm">Cloud Native Computing Foundation</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4 flex-grow">Proven ability to deploy, manage, and troubleshoot Kubernetes clusters in production environments.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="text-sm text-gray-500">Issued May 2021</span>
+                        <a href="#" class="text-purple-700 text-sm font-medium hover:underline">View Credential</a>
+                    </div>
+                </div> -->
+                
+                <!-- Certification 3 -->
+                <!-- <div class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition duration-300 flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60" alt="Google Professional Cloud Architect badge icon" class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h3 class="text-xl font-semibold">Google Professional Cloud Architect</h3>
+                            <div class="text-gray-500 text-sm">Google Cloud</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4 flex-grow">Validated skills in designing and managing scalable, secure cloud solutions on Google Cloud Platform.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="text-sm text-gray-500">Issued Mar 2020</span>
+                        <a href="#" class="text-purple-700 text-sm font-medium hover:underline">View Credential</a>
+                    </div>
+                </div> -->
+                
+                <!-- Certification 4 -->
+                <!-- <div class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition duration-300 flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60" alt="Hashicorp Certified Terraform Associate badge icon" class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h3 class="text-xl font-semibold">Hashicorp Certified Terraform Associate</h3>
+                            <div class="text-gray-500 text-sm">Hashicorp</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4 flex-grow">Demonstrated knowledge of Infrastructure as Code concepts using Terraform.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="text-sm text-gray-500">Issued Sep 2021</span>
+                        <a href="#" class="text-purple-700 text-sm font-medium hover:underline">View Credential</a>
+                    </div>
+                </div> -->
+                
+                <!-- Certification 5 -->
+                <!-- <div class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition duration-300 flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60" alt="Microsoft Certified DevOps Engineer Expert badge icon" class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h3 class="text-xl font-semibold">Microsoft Certified: DevOps Engineer Expert</h3>
+                            <div class="text-gray-500 text-sm">Microsoft</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4 flex-grow">Validated expertise in implementing DevOps practices using Azure DevOps and GitHub.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="text-sm text-gray-500">Issued Jul 2020</span>
+                        <a href="#" class="text-purple-700 text-sm font-medium hover:underline">View Credential</a>
+                    </div>
+                </div> -->
+                
+                <!-- Certification 6 -->
+                <!-- <div class="bg-gray-50 rounded-xl p-8 shadow-sm hover:shadow-md transition duration-300 flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60" alt="Docker Certified Associate badge icon" class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h3 class="text-xl font-semibold">Docker Certified Associate (DCA)</h3>
+                            <div class="text-gray-500 text-sm">Docker</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4 flex-grow">Demonstrated expertise in containerization concepts with Docker.</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="text-sm text-gray-500">Issued Jun 2019</span>
+                        <a href="#" class="text-purple-700 text-sm font-medium hover:underline">View Credential</a>
+                    </div>
+                </div> -->
+            </div>
+            
+            <!-- <div class="text-center mt-12">
+                <button id="viewAllCertifications" class="border border-purple-700 text-purple-700 px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 hover:text-white transition duration-300">View All Certifications</button>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Get In <span class="text-purple-700">Touch</span></h2>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+                    <p class="text-gray-600 mb-8">Feel free to reach out if you're looking for a DevOps engineer, have any questions, or just want to connect!</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-purple-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Location</h4>
+                                <p class="text-gray-600">New Delhi, India</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-purple-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Email</h4>
+                                <p class="text-gray-600">umairmohd425@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-purple-700"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Phone</h4>
+                                <p class="text-gray-600">+918077874337</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-semibold mb-4">Connect with me</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-900 transition duration-300">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <!-- <a href="#" class="bg-blue-400 text-white p-3 rounded-full hover:bg-blue-500 transition duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="bg-red-600 text-white p-3 rounded-full hover:bg-red-700 transition duration-300">
+                                <i class="fab fa-youtube"></i>
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg
