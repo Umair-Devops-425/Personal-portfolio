@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acids, Bases and Salts - Class 10 Presentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f0f4f8;
+            overflow-x: hidden;
+        }
+        .slide {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .active-slide {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .nav-btn {
+            transition: all 0.3s ease;
+        }
+        .nav-btn:hover {
+            transform: scale(1.1);
+        }
+        .indicator {
+            transition: all 0.3s ease;
+        }
+        .indicator.active {
+            background-color: #3b82f6;
+        }
+        .chemical-box {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .chemical-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-4 px-6 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Acids, Bases & Salts</h1>
+            <p class="text-sm">Class 10 Chemistry</p>
+        </div>
+    </header>
+
+    <!-- Presentation Container -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <!-- Slide 1 - Title -->
+        <div class="slide active-slide" id="slide1">
+            <div class="bg-white rounded-xl shadow-2xl p-8 max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="md:w-1/2">
+                        <img src="https://placehold.co/600x400" alt="Science laboratory with glassware containing colorful liquids representing acids and bases" class="rounded-lg w-full" />
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-4">Acids, Bases and Salts</h2>
+                        <h3 class="text-xl text-blue-600 mb-6">Class 10 Chemistry</h3>
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-12 h-1 bg-blue-500"></div>
+                            <p class="text-gray-600">Presented by: Your Name</p>
+                        </div>
+                        <p class="text-gray-700 mb-4">Explore the fascinating world of acids, bases and salts - their properties, reactions and applications.</p>
+                        <button onclick="nextSlide()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition-all duration-300">
+                            Start Presentation →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2 - Introduction -->
+        <div class="slide" id="slide2">
+            <div class="bg-white rounded-xl shadow-2xl p-8 max-w-4xl mx-auto">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Introduction to Acids, Bases & Salts</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="chemical-box bg-red-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-red-600 mb-3">Acids</h3>
+                        <p class="text-gray-700">Substances that release H⁺ ions in aqueous solution and have pH less than 7.</p>
+                        <div class="mt-4">
+                            <img src="https://placehold.co/300x150" alt="Test tube with red liquid representing acid solution" class="rounded w-full" />
+                        </div>
+                    </div>
+                    <div class="chemical-box bg-blue-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-blue-600 mb-3">Bases</h3>
+                        <p class="text-gray-700">Substances that release OH⁻ ions in aqueous solution and have pH greater than 7.</p>
+                        <div class="mt-4">
+                            <img src="https://placehold.co/300x150" alt="Beaker with blue liquid representing base solution" class="rounded w-full" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-yellow-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-yellow-700 mb-3">Salts</h3>
+                    <p class="text-gray-700">Ionic compounds formed by neutralization of acids and bases, composed of positive and negative ions.</p>
+                    <div class="mt-4">
+                        <img src="https://placehold.co/300x150" alt="Crystalline salt formation in a petri dish" class="rounded w-full" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3 - Properties of Acids -->
+        <div class="slide" id="slide3">
+            <div class="bg-white rounded-xl shadow-2xl p-8 max-w-4xl mx-auto">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Properties of Acids</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold text-red-600 mb-4">Physical Properties:</h3>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li>Sour taste (e.g., citric acid in lemons)</li>
+                            <li>Turn blue litmus red</li>
+                            <li>Corrosive to skin and materials</li>
+                            <li>Good conductors of electricity</li>
+                        </ul>
+                        <div class="mt-4">
+                            <img src="https://placehold.co/300x200" alt="Laboratory setup showing litmus paper changing from blue to red when dipped in acid" class="rounded w-full" />
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold text-red-600 mb-4">Chemical Properties:</h3>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li>React with metals to produce hydrogen gas</li>
+                            <li>React with bases to form salt and water (neutralization)</li>
+                            <li>React with carbonates to produce CO₂ gas</li>
+                            <li>Examples: HCl, H₂SO₄, HNO₃, CH₃COOH</li>
+                        </ul>
+                        <div class="mt-4">
+                            <img src="https://placehold.co/300x200" alt="Chemical reaction showing metal reacting with acid producing bubbles of hydrogen gas" class="rounded w-full" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4 - Properties of Bases -->
+        <div class="slide" id="slide4">
+            <div class="bg-white rounded-xl shadow-2xl p-8 max-w-4xl mx-auto">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Properties of Bases</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold text-blue-600 mb-4">Physical Properties:</h3>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li>Bitter taste (e.g., baking soda)</li>
+                            <li>Soapy or slippery feel</li>
+                            <li>Turn red litmus blue</li>
+                            <li>Good conductors of electricity</li>
+                        </ul>
+                        <div class="mt-4">
+                            <img src="https://placehold.co/300x200" alt="Litmus paper changing from red to blue when dipped in base solution" class="rounded w-full" />
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold text-blue-600 mb-4">Chemical Properties:</h3>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li>React with acids to form salt and water</li>
+                            <li>React with metals to produce hydrogen gas</li>
+                            <li>Strong bases can cause burns to skin</li>
+                            <li>Examples: NaOH, KOH, Ca(OH)₂, NH₄OH</li>
+                        </ul>
+                        <div class="mt-4">
+                            <img src="https://placehold.co/300x200" alt="Neutralization reaction between acid and base producing salt and water" class="rounded w-full" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5 - pH Scale -->
+        <div class="slide" id="slide5">
+            <div class="bg-white rounded-xl shadow-2xl p-8 max-w-4xl mx-auto">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">The pH Scale</h2>
+                
+                <div class="mb-8">
+                    <p class="text-gray-700 text-center mb-6">The pH scale measures how acidic or basic a substance is, ranging from 0 (most acidic) to 14 (most basic).</p>
+                    
+                    <div class="relative h-12 mx-4">
+                        <div class="absolute inset-0 flex">
+                            <div class="h-full w-full bg-red-500"></div>
+                            <div class="h-full w-full bg-orange-400"></div>
+                            <div class="h-full w-full bg-yellow-300"></div>
+                            <div class="h-full w-full bg-green-500"></div>
+                            <div class="h-full w-full bg-blue-400"></div>
+                            <div class="h-full w-full bg-indigo-500"></div>
+                            <div class="h-full w-full bg-purple-600"></div>
+                        </div>
+                        <div class="absolute top-0 bottom-0 left-0 right-0 flex justify-between">
+                            <span class="text-white font-bold">0</span>
+                            <span class="text-white font-bold">7</span>
+                            <span class="text-white font-bold">14</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 grid grid-cols-3 gap-4">
+                        <div>
+                            <h4 class="font-semibold text-red-600 mb-2">Strong Acids (0-3)</h4>
+                            <p class="text-sm">HCl, H₂SO₄</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-green-600 mb-2">Neutral (7)</h4>
+                            <p class="text-sm">Pure water</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-blue-600 mb-2">Strong Bases (11-14)</h4>
+                            <p class="text-sm">NaOH, KOH</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-2">Universal Indicator</h3>
+                        <p class="text-gray-700 mb-4">Shows different colors at different pH values to determine approximate pH.</p>
+                        <img src="https://placehold.co/300x150" alt="Color chart showing universal indicator colors at different pH levels" class="rounded w-full" />
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-2">pH Meter</h3>
+                        <p class="text-gray-700 mb-4">Electronic device that gives precise pH measurement.</p>
+                        <img src="https://placehold.co/300x150" alt="Digital pH meter device with probe" class="rounded w-full" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6 - Neutralization Reactions -->
+        <div class="slide" id="slide6">
+            <div class="bg-white rounded-xl shadow-2xl p-8 max-w-4xl mx-auto">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Neutralization Reactions</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold text-purple-600 mb-4">General Equation:</h3>
+                        <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                            <p class="text-center text-lg font-mono">
+                                Acid + Base → Salt + Water + Heat
+                            </p>
+                            <p class="text-center text-lg font-mono mt-2">
+                                HCl + NaOH → NaCl + H₂O
+                            </p>
+                        </div>
+                        
+                        <h3 class="text-xl font-semibold text-purple-600 mb-4">Examples:</h3>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li>HCl + NaOH → NaCl + H₂O</li>
+                            <li>H₂SO₄ + KOH → K₂SO₄ + H₂O</li>
+                            <li>HNO₃ + NH₄OH → NH₄NO₃ + H₂O</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold text-purple-600 mb-4">Applications:</h3>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li>Antacid tablets for acidity relief</li>
+                            <li>Soil treatment in agriculture</li>
+                            <li>Industrial chemical production</li>
+                            <li>Treatment of factory waste</li>
+                            <li>Bee stings (acidic) vs wasp stings (basic)</li>
+                        </ul>
+                        
+                        <div class="mt-6">
+                            <img src="https://placehold.co/300x200" alt="Visual representation of neutralization reaction with molecular models" class="rounded w-full" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7 - Salts -->
+        <div class="slide" id="slide7">
+            <div class="bg-white rounded-xl shadow-2xl p-8 max-w-4xl mx-auto">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Salts and Their Properties</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-xl font-semibold text-green-600 mb-4">Formation of Salts</h3>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li>Neutralization reaction (acid + base)</li>
+                            <li>Metal + acid → salt + hydrogen</li>
+                            <li>Metal carbonate + acid → salt + CO₂ + water</li>
+                            <li>Metal oxide + acid → salt + water</li>
+                        </ul>
+                        
+                        <div class="mt-4">
+                            <img src="https://placehold.co/300x150" alt="Crystallization process showing salt crystals forming from solution" class="rounded w-full" />
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold text-green-600 mb-4">Properties of Salts</h3>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li>Ionic compounds</li>
+                            <li>Crystalline structure</li>
+                            <li>High melting and boiling points</li>
+                            <li>Soluble in water (most)</li>
+                            <li>Conduct electricity when dissolved</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-green-600 mb-4">Common Salts & Uses</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="bg-white p-3 rounded shadow">
+                            <h4 class="font-semibold">NaCl</h4>
+                            <p class="text-sm">Table salt</p>
+                        </div>
+                        <div class="bg-white p-3 rounded shadow">
+                            <h4 class="font-semibold">CaSO₄</h4>
+                            <p class="text-sm">Plaster of Paris</p>
+                        </div>
+                        <div class="bg-white p-3 rounded shadow">
+                            <h4 class="font-semibold">NaHCO₃</h4>
+                            <p class="text-sm">Baking soda</p>
+                        </div>
+                        <div class="bg-white p-3 rounded shadow">
+                            <h4 class="font-semibold">Na₂CO₃</h4>
+                            <p class="text-sm">Washing soda</p>
+                        </div>
+                        <div class="bg-white p-3 rounded shadow">
+                            <h4 class="font-semibold">KNO₃</h4>
+                            <p class="text-sm">Fertilizers</p>
+                        </div>
+                        <div class="bg-white p-3 rounded shadow">
+                            <h4 class="font-semibold">CaCO₃</h4>
+                            <p class="text-sm">Chalk, antacids</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8 - Indicators -->
+        <div class="slide" id="slide8">
+            <div class="bg-white rounded-xl shadow-2xl p-8 max-w-4xl mx-auto">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Natural Indicators</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold text-indigo-600 mb-4">Common Natural Indicators</h3>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li><strong>Litmus:</strong> Extracted from lichens (turns red in acids, blue in bases)</li>
+                            <li><strong>Turmeric:</strong> Yellow in acid and neutral, turns red in base</li>
+                            <li><strong>Red Cabbage:</strong> Purple color changes with pH</li>
+                            <li><strong>China Rose:</strong> Deep pink in acid, green in base</li>
+                            <li><strong>Hibiscus:</strong> Reddish in acid, greenish in base</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <div class="bg-yellow-50 p-4 rounded-lg mb-6">
+                            <h4 class="font-semibold text-yellow-700 mb-2">Turmeric Indicator Demonstration</h4>
+                            <p class="text-gray-700">Turmeric paper turns brown when soap solution (basic) is applied.</p>
+                            <img src="https://placehold.co/300x150" alt="Turmeric paper changing color when exposed to basic solution" class="rounded w-full mt-2" />
+                        </div>
+                        
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-purple-700 mb-2">Red Cabbage pH Colors</h4>
+                            <p class="text-gray-700">Shows various colors from pink (acid) to blue/green (base).</p>
+                            <img src="https://placehold.co/300x150" alt="Red cabbage juice showing different colors at different pH levels" class="rounded w-full mt-2" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9 - Everyday Examples -->
+        <div class="slide" id="slide9">
+            <div class="bg-white rounded-xl shadow-2xl p-8 max-w-4xl mx-auto">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Acids & Bases in Daily Life</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-red-50 p-4 rounded-lg">
+                        <h3 class="text-xl font-semibold text-red-600 mb-3">Acids Around Us</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <span class="bg-red-200 p-1 rounded mr-2">1</span>
+                                <span>Citric acid (lemons, oranges)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-red-200 p-1 rounded mr-2">2</span>
+                                <span>Acetic acid (vinegar)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-red-200 p-1 rounded mr-2">3</span>
+                                <span>Ascorbic acid (Vitamin C)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-red-200 p-1 rounded mr-2">4</span>
+                                <span>Carbonic acid (soft drinks)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-red-200 p-1 rounded mr-2">5</span>
+                                <span>Tartaric acid (tamarind, grapes)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h3 class="text-xl font-semibold text-blue-600 mb-3">Bases Around Us</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <span class="bg-blue-200 p-1 rounded mr-2">1</span>
+                                <span>Sodium hydroxide (soap making)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-blue-200 p-1 rounded mr-2">2</span>
+                                <span>Calcium hydroxide (whitewash)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-blue-200 p-1 rounded mr-2">3</span>
+                                <span>Magnesium hydroxide (milk of magnesia)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-blue-200 p-1 rounded mr-2">4</span>
+                                <span>Ammonium hydroxide (household cleaners)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-blue-200 p-1 rounded mr-2">5</span>
+                                <span>Sodium bicarbonate (baking soda)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-green-50 p-4 rounded-lg">
+                    <h3 class="text-xl font-semibold text-green-600 mb-3">Salts Around Us</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="bg-white p-2 rounded shadow">
+                            <h4 class="font-semibold">NaCl</h4>
+                            <p class="text-sm">Common salt (cooking)</p>
+                        </div>
+                        <div class="bg-white p-2 rounded shadow">
+                            <h4 class="font-semibold">NaHCO₃</h4>
+                            <p class="text-sm">Baking (cakes)</p>
+                        </div>
+                        <div class="bg-white p-2 rounded shadow">
+                            <h4 class="font-semibold">CaSO₄.½H₂O</h4>
+                            <p class="text-sm">Plaster casts</p>
+                        </div>
+                        <div class="bg-white p-2 rounded shadow">
+                            <h4 class="font-semibold">K₂CO₃</h4>
+                            <p class="text-sm">Potash (fertilizer)</p>
+                        </div>
+                        <div class="bg-white p-2 rounded shadow">
+                            <h4 class="font-semibold">CaCO₃</h4>
+                            <p class="text-sm">Marble, egg shells</p>
+                        </div>
+                        <div class="bg-white p-2 rounded shadow">
+                            <h4 class="font-semibold">AgBr</h4>
+                            <p class="text-sm">Photography</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10 - Summary -->
+        <div class="slide" id="slide10">
+            <div class="bg-white rounded-xl shadow-2xl p-8 max-w-4xl mx-auto">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Key Summary</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                    <div class="bg-red-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-semibold text-red-600 mb-3">Acids</h3>
+                        <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                            <li>Sour taste</li>
+                            <li>pH < 7</li>
+                            <li>Release H⁺ ions</li>
+                            <li>Turn litmus red</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-semibold text-blue-600 mb-3">Bases</h3>
+                        <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                            <li>Bitter taste</li>
+                            <li>pH > 7</li>
+                            <li>Release OH⁻ ions</li>
+                            <li>Turn litmus blue</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h3 class="text-lg font-semibold text-green-600 mb-3">Salts</h3>
+                        <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                            <li>Neutral (pH ≈7)</li>
+                            <li>Formed by neutralization</li>
+                            <li>Crystalline</li>
+                            <li>Useful compounds</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-purple-50 px-6 py-4 rounded-lg">
+                    <h3 class="text-xl font-semibold text-purple-700 mb-4 text-center">Important Reactions</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <p class="font-mono text-center">Metal + Acid → Salt + Hydrogen</p>
+                            <p class="text-sm text-center text-gray-600">Zn + 2HCl → ZnCl₂ + H₂↑</p>
+                        </div>
+                        <div>
+                            <p class="font-mono text-center">Base + Acid → Salt + Water</p>
+                            <p class="text-sm text-center text-gray-600">NaOH + HCl → NaCl + H₂O</p>
+                        </div>
+                        <div>
+                            <p class="font-mono text-center">Carbonate + Acid → Salt + CO₂ + Water</p>
+                            <p class="text-sm text-center text-gray-600">CaCO₃ + 2HCl → CaCl₂ + CO₂↑ + H₂O</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11 - Thank You -->
+        <div class="slide" id="slide11">
+            <div class="bg-gradient-to-br from-blue-600 to-indigo-700 text-white rounded-xl shadow-2xl p-12 max-w-4xl mx-auto text-center">
+                <svg xmlns="http://www.w3.org/2000/s
